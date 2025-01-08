@@ -1,0 +1,13 @@
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/model/TexasHoldemHandEvaluator.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/service/GameService.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/model/Deck.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/model/Player.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/TexasHoldemApplication.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/controller/GameController.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/model/Card.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/model/Rank.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/model/HandRank.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/dto/PlayerAction.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/config/WebSocketConfig.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/model/Suit.java
+/Users/adrianmaier/Documents/Programming/IntelliJ/PokerCPTnetwork/src/main/java/com/adrianandsasha/texasholdem/model/HandCategory.java
