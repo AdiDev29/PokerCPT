@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Texas Hold'em</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="join-section">
+    <h1>Join Texas Hold'em</h1>
+    <input type="text" id="nickname" placeholder="Enter your nickname" />
+    <button id="joinBtn">Join Game</button>
+</div>
+
+<!-- The main game section with a 6-seat table layout -->
+<div id="game-section" style="display: none;">
+    <div class="table-container">
+        <!-- 6 seats around the table -->
+        <div class="seat seat-0" id="seat-0">
+            <div class="player-info" id="player-info-0"></div>
+            <div class="player-cards" id="player-cards-0"></div>
+        </div>
+        <div class="seat seat-1" id="seat-1">
+            <div class="player-info" id="player-info-1"></div>
+            <div class="player-cards" id="player-cards-1"></div>
+        </div>
+        <div class="seat seat-2" id="seat-2">
+            <div class="player-info" id="player-info-2"></div>
+            <div class="player-cards" id="player-cards-2"></div>
+        </div>
+        <div class="seat seat-3" id="seat-3">
+            <div class="player-info" id="player-info-3"></div>
+            <div class="player-cards" id="player-cards-3"></div>
+        </div>
+        <div class="seat seat-4" id="seat-4">
+            <div class="player-info" id="player-info-4"></div>
+            <div class="player-cards" id="player-cards-4"></div>
+        </div>
+        <div class="seat seat-5" id="seat-5">
+            <div class="player-info" id="player-info-5"></div>
+            <div class="player-cards" id="player-cards-5"></div>
+        </div>
+
+        <!-- Middle of the table: pot, community cards, action buttons -->
+        <div class="table-center">
+            <div id="communityCards"></div>
+            <div id="potInfo"></div>
+            <div id="actions">
+                <button onclick="fold()">Fold</button>
+                <button onclick="call()">Call</button>
+                <button onclick="raise()">Raise</button>
+                <button onclick="check()">Check</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
