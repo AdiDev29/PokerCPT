@@ -8,9 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("joinBtn").addEventListener("click", joinGame);
 });
 
-/**
- * Helper to map rank/suit strings to filenames, e.g. "ACE" + "SPADES" => "AS.png"
- */
+
+//Helper to map rank/suit strings to filenames, e.g. "ACE" + "SPADES" => "AS.png"
 function getCardFilename(rank, suit) {
     const rankMap = {
         "TWO": "2",
