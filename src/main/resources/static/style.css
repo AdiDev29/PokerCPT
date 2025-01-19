@@ -6,8 +6,8 @@
 }
 
 body {
-    font-family: sans-serif;
-    background-color: #1c1c1c;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #222;
     color: #f0f0f0;
     min-height: 100vh;
     display: flex;
@@ -21,33 +21,64 @@ body {
 #join-section {
     text-align: center;
     margin-top: 50px;
+    max-width: 400px;
+    width: 90%;
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+#join-section h1 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
 }
 
 #join-section input[type="text"] {
-    padding: 8px;
+    width: 100%;
+    padding: 10px;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #444;
+    color: #fff;
+    outline: none;
+}
+
+#join-section input[type="text"]::placeholder {
+    color: #aaa;
 }
 
 #join-section button {
-    padding: 10px 20px;
+    display: inline-block;
+    padding: 10px 25px;
     cursor: pointer;
-    margin: 10px;
+    margin: 10px auto 0 auto;
     background-color: #3c3cff;
     color: white;
     border: none;
     border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+#join-section button:hover {
+    background-color: #6464ff;
 }
 
 /* Table & Seats */
 .table-container {
     position: relative;
     width: 800px;
+    max-width: 90%;
     height: 600px;
     margin-top: 30px;
     border: 2px solid #444;
     border-radius: 10px;
-    background: radial-gradient(circle at center, #2e8b57 0%, #006400 80%);
+    background: radial-gradient(circle at center, #357a38 0%, #1e5221 100%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    margin-bottom: 40px;
 }
 
 .seat {
@@ -55,8 +86,17 @@ body {
     width: 120px;
     height: 100px;
     text-align: center;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
 }
 
+.seat:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Positioning seats around the table */
 .seat-0 {
     bottom: 20px;
     left: 50%;
@@ -85,8 +125,8 @@ body {
 }
 
 .player-info {
-    margin-bottom: 5px;
-    font-size: 14px;
+    margin-top: 5px;
+    font-size: 0.9rem;
     white-space: nowrap;
 }
 
@@ -94,21 +134,23 @@ body {
     display: flex;
     justify-content: center;
     gap: 6px;
+    margin-top: 5px;
 }
 
 /* For card styling */
 .card {
     position: relative;
-    width: 60px; /* adjust to taste */
-    height: 88px; /* adjust to taste */
-    background-color: #333; /* fallback */
+    width: 60px;
+    height: 88px;
+    background-color: #333;
     border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.7);
 }
 
 .card img {
     max-width: 100%;
     max-height: 100%;
-    border-radius: 4px;
 }
 
 /* Center area: pot, community cards, and actions */
@@ -117,8 +159,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 320px;
     text-align: center;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 8px;
 }
 
 #communityCards {
@@ -129,15 +174,23 @@ body {
 }
 
 #potInfo h3 {
-    margin: 5px 0;
+    margin: 8px 0 12px 0;
+    font-size: 1.2rem;
 }
 
+/* Action buttons */
 #actions button {
-    padding: 8px 16px;
+    padding: 10px 16px;
     cursor: pointer;
     margin: 5px;
     background-color: #3c3cff;
     color: white;
     border: none;
     border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+#actions button:hover {
+    background-color: #6464ff;
 }

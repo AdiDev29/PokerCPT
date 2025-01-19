@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("joinBtn").addEventListener("click", joinGame);
 });
 
-
 //Helper to map rank/suit strings to filenames, e.g. "ACE" + "SPADES" => "AS.png"
 function getCardFilename(rank, suit) {
     const rankMap = {
@@ -49,11 +48,8 @@ function joinGame() {
         .then(response => response.text())
         .then(id => {
             playerId = id;
-
-            // Hide join, show game
             document.getElementById("join-section").style.display = "none";
             document.getElementById("game-section").style.display = "block";
-
             connectWebSocket();
         })
         .catch(err => console.error("Join error:", err));
@@ -87,23 +83,13 @@ function fetchState() {
         .catch(err => console.log("State fetch error", err));
 }
 
-/**
- * Renders the entire game UI based on the given gameState object
- * from the server. We seat players in the order found in
- * gameState.activePlayersThisHand, i.e. seat 0 => first, seat 1 => second, etc.
- * actionIndex determines whose turn it is.
- */
 function updateGameUI(gameState) {
-    // 1. Seat players in turn order from activePlayersThisHand
     seatAssignments.fill(null);
     const activeIds = gameState.activePlayersThisHand || [];
-
-    // Example: if activePlayersThisHand = ["pA","pB","pC"], seat 0 => pA, seat 1 => pB, seat 2 => pC
     for (let i = 0; i < activeIds.length && i < 6; i++) {
         seatAssignments[i] = activeIds[i];
     }
 
-    // 2. Render seats
     const allPlayers = gameState.players || [];
 
     for (let i = 0; i < 6; i++) {
@@ -111,7 +97,6 @@ function updateGameUI(gameState) {
         const infoDiv = document.getElementById(`player-info-${i}`);
         const cardsDiv = document.getElementById(`player-cards-${i}`);
 
-        // Clear old content/borders
         seatDiv.style.removeProperty("border");
         infoDiv.innerHTML = "";
         cardsDiv.innerHTML = "";
@@ -119,18 +104,16 @@ function updateGameUI(gameState) {
         const playerIdInSeat = seatAssignments[i];
         if (!playerIdInSeat) continue;
 
-        // Find the corresponding player object
         const thisPlayer = allPlayers.find(pl => pl.id === playerIdInSeat);
         if (!thisPlayer) continue;
 
-        // Build info text
         let infoText = `${thisPlayer.nickname} | ${thisPlayer.chipStack} chips`;
         if (thisPlayer.folded) {
             infoText += " (FOLDED)";
         }
         infoDiv.textContent = infoText;
 
-        // Hole cards if it's me
+        // Show hole cards if it's me
         if (thisPlayer.id === playerId) {
             for (let c of thisPlayer.holeCards) {
                 const cardDiv = document.createElement("div");
@@ -146,7 +129,6 @@ function updateGameUI(gameState) {
         }
     }
 
-    // 3. Pot + Community Cards
     const potDiv = document.getElementById("potInfo");
     potDiv.innerHTML = `<h3>Pot: ${gameState.pot || 0}</h3>`;
 
@@ -166,21 +148,17 @@ function updateGameUI(gameState) {
         }
     }
 
-    // 4. Highlight current turn
-    // If the server sets: actionIndex => which seat is up
-    // e.g. actionIndex=0 => seat 0 is current turn
     if (gameState.actionIndex != null) {
         const actingSeat = gameState.actionIndex;
         if (actingSeat >= 0 && actingSeat < 6) {
             const seatDiv = document.getElementById(`seat-${actingSeat}`);
             if (seatDiv) {
-                seatDiv.style.border = "2px solid yellow";
+                seatDiv.style.border = "2px solid gold";
             }
         }
     }
 }
 
-/** Actions */
 function fold() {
     sendAction("FOLD", 0);
 }
